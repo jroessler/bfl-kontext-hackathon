@@ -41,6 +41,11 @@ Typical limitations of current segmentation models:
 | ![img1](images/problem-01.png) | ![img2](images/problem-02.png) |
 | How can we automatically built such a complex mask (green area in the image)? | How can we automatically built such a complex mask (green area in the image)? | 
 
+**Some Notes on FLUX.1 Kontext Capabilities (or should we say Incapabilities)**
+
+- The first limitation we observed is the difficulty of generating specific new objects in images. We initially assumed FLUX.1 Kontext could directly create modifications such as turning short socks into long socks. In practice, this turned out to be unreliable. There are many variations of what long socks could look like, and text prompts alone are too ambiguous to consistently control length or style. Misunderstandings can also occur, for example when the model replaces shoes with only socks, even though the shoes should remain in the image. This makes it difficult to depend on inherent generative capabilities for precise object modifications.
+- Another point concerns sampling efficiency. Standard workflows with FLUX.1 Kontext typically require 20 or more sampling steps to achieve strong results. With our approach, however, high-quality masks can often be produced with as few as 10 steps, sometimes even fewer. This significantly reduces computation time and makes the pipeline much more efficient for downstream segmentation tasks.
+- The third limitation is consistency of image structure. When directly modifying images, such as adding long socks, FLUX.1 Kontext occasionally introduces unintended alterations, including slight positional shifts of the person or changes in the proportions of elements. That makes downstream segmentation much harder, if not even impossible. With our LoRA-based mask generation approach, these structural inconsistencies did not appear in testing. This stability is important for automation, since it ensures the masks are produced without unwanted changes.
 
 ## **Goal**
 
@@ -71,7 +76,7 @@ You can find the training (control + target images) and testing (+ results) data
 - *Socks-LoRA. [Link](https://pixit-my.sharepoint.com/:f:/g/personal/nils_pixitai_io/EmKdXUKZDDxNr4ftJ1Ibz68BSGgtH31rsobq_LvpTJy0HA?e=SbWlS1)*
     - Prompt / Caption: put a green mask for socks and lower leg skin on the person
 - *Hat-LoRA. [Link](https://pixit-my.sharepoint.com/:f:/g/personal/nils_pixitai_io/EsfB9MpHNCNIskJxw054iN8BW_1cMI5_giPROO-D-X4XnA?e=U0sHsP)*
-    - Prompt / Caption: ??? TODO
+    - Prompt / Caption: put a green mask for a hat on the person
 - *Glasses-LoRA. [Link](https://pixit-my.sharepoint.com/:f:/g/personal/nils_pixitai_io/Enq6VV-jN9pJpIdhXeIkYxMB2Adg5udUm_KtwSgwne6iNQ?e=hXkcg7)*
     - Prompt / Caption: put a green mask for glasses on the person
 - *Sweatshirt-LoRA. [Link](https://pixit-my.sharepoint.com/:f:/g/personal/nils_pixitai_io/EnzB-Fzb219ArVDaoDo570EB9ixVsO0hfwzdpcK4YT3F9Q?e=cCgkNX)*
@@ -106,6 +111,14 @@ We (visually) evaluated the performance of each LoRA on 4-5 different testing im
 ![socks-13-results.png](images/results/socks-13-results.png)
 
 ### Hats-LoRA
+
+![hats-11-results.png](images/results/hats-11-results.png)
+
+![hats-12-results.png](images/results/hats-12-results.png)
+
+![hats-13-results.png](images/results/hats-13-results.png)
+
+![hats-14-results.png](images/results/hats-14-results.png)
 
 ### Glasses-LoRA
 
