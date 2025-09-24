@@ -57,7 +57,7 @@ We used Ostris’ AI Toolkit to train the FLUX.1 Kontext LoRAs. You can access i
 - Steps: 1000-2000
 - Resolutions: [512,768,1024]
 
-Overall, we trained 4 different LoRAs that can be used in virtual try-on tasks, namely: *Socks-LoRA, Hat-LoRA, Glasses-LoRA,* and Sweatshirt*-LoRA. *****For each of these LoRAs, we collected ~10 training samples in the form of (a) a control image; image that serves as a starting point for FLUX.1 Kontext and (b) the target image; image that contains a green mask for the to-be modified area. Note that we created these masks manually using Photoshop. For some examples, see below.
+Overall, we trained 4 different LoRAs that can be used in virtual try-on tasks, namely: *Socks-LoRA, Hat-LoRA, Glasses-LoRA, and Sweatshirt-LoRA*. For each of these LoRAs, we collected ~10 training samples in the form of (a) a control image; image that serves as a starting point for FLUX.1 Kontext and (b) the target image; image that contains a green mask for the to-be modified area. Note that we created these masks manually using Photoshop. For some examples, see below.
 
 | Control | Target |
 |---|---|
