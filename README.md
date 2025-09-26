@@ -1,11 +1,8 @@
 # Dreaming Masks with FLUX.1 Kontext
-
-Date: 23/09/2025
-
-<aside>
 💡 Using FLUX.1 Kontext for creating segmentation masks for objects absent from images, enabling workflows in inpainting and virtual try-ons.
 
-</aside>
+
+This project is part of the [Black Forest Labs Hackathon](https://bfl-kontext-dev.devpost.com/)
 
 ## **Project Description**
 
